@@ -1,4 +1,4 @@
-FROM yourgrigor/ruby:rvm
+FROM phusion/baseimage:0.9.9
 
 ENV HOME /root
 
