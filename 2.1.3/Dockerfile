@@ -1,4 +1,4 @@
-FROM yourgrigor/rvm
+FROM yourgrigor/ruby:rvm
 
 ENV HOME /root
 
