@@ -8,6 +8,8 @@ CMD ["/sbin/my_init"]
 
 ENV RUBY_VERSION 2.1.3
 
+RUN apt-get update
+
 RUN apt-get install python-software-properties
     && apt-add-repository ppa:brightbox/ruby-ng
     && apt-get update
