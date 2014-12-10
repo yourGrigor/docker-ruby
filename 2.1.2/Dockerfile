@@ -1,8 +1,8 @@
-FROM phusion/baseimage:0.9.9
+FROM phusion/baseimage:0.9.15
 
 ENV HOME /root
 
-RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
+CMD ["/sbin/my_init"]
 
 ENV RUBY_MAJOR 2.1
 ENV RUBY_VERSION 2.1.2
@@ -16,5 +16,3 @@ RUN apt-get -y update
   && ./configure --prefix=/usr/local
   && make
   && make install
-
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
