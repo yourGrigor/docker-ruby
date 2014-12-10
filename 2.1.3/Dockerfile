@@ -11,8 +11,8 @@ ENV RUBY_VERSION 2.1.3
 RUN apt-get update
 
 RUN apt-get install python-software-properties -y
-    && apt-add-repository ppa:brightbox/ruby-ng -y
-    && apt-get update
+RUN apt-add-repository ppa:brightbox/ruby-ng -y
+RUN apt-get update
 
 RUN apt-get install ruby rubygems ruby-switch -y
 
