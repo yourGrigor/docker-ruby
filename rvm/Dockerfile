@@ -7,5 +7,5 @@ RUN apt-get install curl -y
 
 RUN \curl -L https://get.rvm.io | bash -s stable
 
-RUN /bin/bash -c "source /usr/local/rvm/scripts/rvm
+RUN /bin/bash -c "source /usr/local/rvm/scripts/rvm \
                   && rvm requirements"
