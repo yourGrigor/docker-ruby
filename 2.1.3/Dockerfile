@@ -16,4 +16,5 @@ RUN apt-get -y update
   && ./configure --prefix=/usr/local
   && make
   && make install
+  && apt-get install rubygems
 
