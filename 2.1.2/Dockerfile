@@ -1,11 +1,23 @@
 FROM ubuntu:14.04
 
-RUN apt-get -y update
-    && apt-get -y install build-essential zlib1g-dev libssl-dev libreadline6-dev libyaml-dev
-    && cd /tmp
-    && wget http://ftp.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz
-    && tar -xvzf ruby-2.1.2.tar.gz
-    && cd ruby-2.1.2/
-    && ./configure --prefix=/usr/local
-    && make
-    && make install
+RUN apt-get update
+
+RUN apt-get install -y wget curl \
+    build-essential git git-core \
+    zlib1g-dev libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev
+
+RUN apt-get update
+
+RUN cd /tmp &&\
+  wget -O ruby-install-0.4.3.tar.gz https://github.com/postmodern/ruby-install/archive/v0.4.3.tar.gz &&\
+  tar -xzvf ruby-install-0.4.3.tar.gz &&\
+  cd ruby-install-0.4.3/ &&\
+  make install
+
+RUN ruby-install -M https://ftp.ruby-lang.org/pub/ruby ruby 2.1.2
+
+ENV PATH /opt/rubies/ruby-2.1.2/bin:$PATH
+
+RUN echo "gem: --no-document" > ~/.gemrc
+
+RUN gem install bundler
