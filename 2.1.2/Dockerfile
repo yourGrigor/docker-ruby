@@ -23,5 +23,3 @@ RUN apt-get update
     && apt-get install rubygems
     && echo "gem: --no-document" > ~/.gemrc
     && gem install bundler
-
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
