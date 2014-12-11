@@ -1,1 +1,2 @@
+FROM phusion/baseimage:0.9.15
 RUN echo THIS IS NO LONGER SUPPORTED
