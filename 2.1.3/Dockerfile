@@ -19,5 +19,9 @@ RUN apt-get -y update
 
 ENV PATH /opt/rubies/ruby-2.1.2/bin:$PATH
 
-RUN echo "gem: --no-document" > ~/.gemrc && gem install bundler
+RUN apt-get update
+    && apt-get install rubygems
+    && echo "gem: --no-document" > ~/.gemrc
+    && gem install bundler
 
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
