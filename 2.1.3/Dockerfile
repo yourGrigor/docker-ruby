@@ -16,5 +16,8 @@ RUN apt-get -y update
   && ./configure --prefix=/usr/local
   && make
   && make install
-  && apt-get install rubygems
+
+ENV PATH /opt/rubies/ruby-2.1.2/bin:$PATH
+
+RUN echo "gem: --no-document" > ~/.gemrc && gem install bundler
 
