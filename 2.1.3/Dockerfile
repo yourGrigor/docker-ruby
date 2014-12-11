@@ -14,7 +14,7 @@ RUN cd /tmp &&\
   cd ruby-install-0.4.3/ &&\
   make install
 
-RUN ruby-install -M https://ftp.ruby-lang.org/pub/ruby ruby 2.1.3 --no-check-certificate
+RUN ruby-install -M --no-check-certificate https://ftp.ruby-lang.org/pub/ruby ruby 2.1.3
 
 ENV PATH /opt/rubies/ruby-2.1.3/bin:$PATH
 
