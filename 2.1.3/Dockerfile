@@ -1,4 +1,8 @@
-FROM ubuntu:14.04
+FROM phusion/baseimage:0.9.15
+
+ENV HOME /root
+
+aCMD ["/sbin/my_init"]
 
 RUN apt-get update
 
@@ -21,3 +25,5 @@ ENV PATH /opt/rubies/ruby-2.1.3/bin:$PATH
 RUN echo "gem: --no-document" > ~/.gemrc
 
 RUN gem install bundler
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
