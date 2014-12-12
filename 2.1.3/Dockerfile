@@ -2,7 +2,7 @@ FROM phusion/baseimage:0.9.15
 
 ENV HOME /root
 
-aCMD ["/sbin/my_init"]
+CMD ["/sbin/my_init"]
 
 RUN apt-get update
 
